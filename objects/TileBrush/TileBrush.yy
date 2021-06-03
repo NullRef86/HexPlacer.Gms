@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "grid_hex",
-    "path": "sprites/grid_hex/grid_hex.yy",
+    "name": "spr_Hex_Empty",
+    "path": "sprites/spr_Hex_Empty/spr_Hex_Empty.yy",
   },
   "solid": false,
   "visible": true,

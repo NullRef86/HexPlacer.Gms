@@ -8,8 +8,8 @@ var screenBottom = camera_get_view_height(view_camera[0]);
 
 var padding = 10;
 
-var buttonWidth = sprite_get_width(grid_hex) + (padding * 2);
-var buttonHeight = sprite_get_height(grid_hex) + (padding * 2)
+var buttonWidth = sprite_get_width(spr_Hex_Empty) + (padding * 2);
+var buttonHeight = sprite_get_height(spr_Hex_Empty) + (padding * 2)
 
 var buttonX = screenCentreX - (buttonWidth * buttonCount) / 2 + (buttonWidth / 2);
 var buttonY = screenBottom - (buttonHeight / 2) - padding;

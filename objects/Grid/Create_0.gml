@@ -133,13 +133,14 @@ var startingHex =
 
 ds_map_copy(startingHex.Content, global.HexContentTemplate);
 
-startingHex.Content[?ContentPosition_Centre] = BuildSubContent(true);
-startingHex.Content[?ContentPosition_NorthWest] = BuildSubContent(false);
-startingHex.Content[?ContentPosition_North] = BuildSubContent(false);
-startingHex.Content[?ContentPosition_NorthEast] = BuildSubContent(false);
-startingHex.Content[?ContentPosition_SouthWest] = BuildSubContent(false);
-startingHex.Content[?ContentPosition_South] = BuildSubContent(false);
-startingHex.Content[?ContentPosition_SouthEast] = BuildSubContent(false);
+
+startingHex.Content[?ContentPosition_Centre] = GetTileContent(Content_Campfire, true);
+startingHex.Content[?ContentPosition_NorthWest] = GetTileContent(Content_Forest, false);
+startingHex.Content[?ContentPosition_North] = GetTileContent(Content_Empty, false);
+startingHex.Content[?ContentPosition_NorthEast] = GetTileContent(Content_Forest, false);
+startingHex.Content[?ContentPosition_SouthWest] = GetTileContent(Content_Empty, false);
+startingHex.Content[?ContentPosition_South] = GetTileContent(Content_Empty, false);
+startingHex.Content[?ContentPosition_SouthEast] = GetTileContent(Content_Empty, false);
 
 
 

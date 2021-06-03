@@ -1,21 +1,13 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function CalculateResources(hex){
-	show_debug_message("Calculating resources for: " + string(hex.Coordinate[?X]) + ":" + string(hex.Coordinate[?Y]) + "...");
 	
-	for (var key = ds_map_find_first(hex.Content); !is_undefined(key); key = ds_map_find_next(hex.Content, key)) 
+	for (var contentPositionKey = ds_map_find_first(hex.Content); !is_undefined(contentPositionKey); contentPositionKey = ds_map_find_next(hex.Content, contentPositionKey)) 
 	{
-		var subContent = hex.Content[? key];
+		var tileContent = hex.Content[? contentPositionKey];
 		
-        if (key == ContentPosition_Centre)
+        if (contentPositionKey == ContentPosition_Centre)
         {
             continue;
         }
-
-		if (subContent == Content_Empty)
-		{
-			continue;	
-		}
 
         //// For any content that isn't a plot...
         //if (position.Value.Type != TileContentType.Plot)
@@ -29,46 +21,44 @@ function CalculateResources(hex){
         //    }
         //}
 
-        //switch (position.Value.Type)
-        //{
-        //    case TileContentType.Forest:
-        //        var forest = position.Value;
+        switch (tileContent[?TileContent_Type])
+        {
+            case Content_Forest:
+                var subContent = tileContent[?TileContent_SubContent];
 
-                var adjacentContent = ds_map_create();// new Dictionary<ContentSubPosition, TileContent>();
+                var adjacentContent = ds_map_create();
 
-                switch (key)
+                switch (contentPositionKey)
                 {
                     case ContentPosition_NorthWest:
-                        AddOuterAdjacentContent(adjacentContent, hex, HexPosition_NorthWest, ContentPosition_SouthEast);
+                        AddOuterAdjacentContent(adjacentContent, hex, subContent, HexPosition_NorthWest, ContentPosition_SouthEast);
                         break;
                     case ContentPosition_North:
-                        AddOuterAdjacentContent(adjacentContent, hex, HexPosition_North, ContentPosition_South);
+                        AddOuterAdjacentContent(adjacentContent, hex, subContent, HexPosition_North, ContentPosition_South);
                         break;
                     case ContentPosition_NorthEast:
-                        AddOuterAdjacentContent(adjacentContent, hex, HexPosition_NorthEast, ContentPosition_SouthWest);
+                        AddOuterAdjacentContent(adjacentContent, hex, subContent, HexPosition_NorthEast, ContentPosition_SouthWest);
                         break;
                     case ContentPosition_SouthEast:
-                        AddOuterAdjacentContent(adjacentContent, hex, HexPosition_SouthEast, ContentPosition_NorthWest);
+                        AddOuterAdjacentContent(adjacentContent, hex, subContent, HexPosition_SouthEast, ContentPosition_NorthWest);
                         break;
                     case ContentPosition_South:
-                        AddOuterAdjacentContent(adjacentContent, hex, HexPosition_South, ContentPosition_North);
+                        AddOuterAdjacentContent(adjacentContent, hex, subContent, HexPosition_South, ContentPosition_North);
                         break;
                     case ContentPosition_SouthWest:
-                        AddOuterAdjacentContent(adjacentContent, hex, HexPosition_SouthWest, ContentPosition_NorthEast);
+                        AddOuterAdjacentContent(adjacentContent, hex, subContent, HexPosition_SouthWest, ContentPosition_NorthEast);
                         break;
                 }
 
-
 				for (var adjacentContentKey = ds_map_find_first(adjacentContent); !is_undefined(adjacentContentKey); adjacentContentKey = ds_map_find_next(adjacentContent, adjacentContentKey)) 
-                //foreach (var entry in adjacentContent)
                 {
 					var entry = adjacentContent[?adjacentContentKey];
 					
-                    //// Only consider forests at the moment...
-                    //if (entry.Value.Type != TileContentType.Forest)
-                    //{
-                    //    continue;
-                    //}
+                    // Only consider forests at the moment...
+                    if (entry[?TileContent_Type] != Content_Forest)
+                    {
+                        continue;
+                    }
 
                     if (ds_map_exists(subContent, adjacentContentKey) && subContent[?adjacentContentKey] != pointer_null)
                     {
@@ -78,8 +68,8 @@ function CalculateResources(hex){
 
                     subContent[?adjacentContentKey] = true;
                 }
-                //break;
-        //}
+                break;
+        }
     }
 	
 }

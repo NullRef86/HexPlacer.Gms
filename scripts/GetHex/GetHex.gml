@@ -1,4 +1,3 @@
-// Script assets have changed for v2.3.0 see
 function GetHex(_coordinateX, _coordinateY){
 	
 	for (var i = 0; i < ds_list_size(global.Hexes); i++) {	

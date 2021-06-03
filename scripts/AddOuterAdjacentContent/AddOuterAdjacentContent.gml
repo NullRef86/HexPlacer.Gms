@@ -1,7 +1,5 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function AddOuterAdjacentContent(adjacentContent, hex, adjacentHexPosition, adjacentContentPosition){
-//void addOuterAdjacentContent(HexPosition adjacentHexPosition, ContentPosition adjacentContentPosition)
+function AddOuterAdjacentContent(adjacentContent, hex, subContent, adjacentHexPosition, adjacentContentPosition){
+	
     if (ds_map_exists(hex.Neighbors, adjacentHexPosition))
     {
         var neighboringCoordinate = hex.Neighbors[?adjacentHexPosition];
@@ -12,11 +10,12 @@ function AddOuterAdjacentContent(adjacentContent, hex, adjacentHexPosition, adja
             ds_map_add(adjacentContent, ContentSubPosition_OuterCentre, neighboringHex.Content[?adjacentContentPosition]);
             ds_map_add(adjacentContent, ContentSubPosition_OuterAntiClockwise, neighboringHex.Content[?adjacentContentPosition]);
         }
-        //else
-        //{
-        //    forest.SubContent[ContentSubPosition.OuterClockwise] = null;
-        //    forest.SubContent[ContentSubPosition.OuterCentre] = null;
-        //    forest.SubContent[ContentSubPosition.OuterAntiClockwise] = null;
-        //}
+        else
+        {
+            subContent[?ContentSubPosition_OuterClockwise] = pointer_null;
+            subContent[?ContentSubPosition_OuterCentre] = pointer_null;
+            subContent[?ContentSubPosition_OuterAntiClockwise] = pointer_null;
+        }
     }
+	
 }

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Draw",
+    "path": "folders/Scripts/Draw.yy",
   },
   "resourceVersion": "1.0",
-  "name": "UnhoverHex",
+  "name": "DrawTree",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -1,7 +1,4 @@
-
 function ClearTileBrush(){
-
-	global.IsZoomEnabled = true;
 
 	if (global.TileBrush == pointer_null)
 	{

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "HexContent",
+    "path": "folders/Scripts/HexContent.yy",
   },
   "resourceVersion": "1.0",
-  "name": "BuildSubContent",
+  "name": "GetRandomTileContent",
   "tags": [],
   "resourceType": "GMScript",
 }
