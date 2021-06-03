@@ -4,9 +4,9 @@ function GetRandomHexContent(isCentre){
 
 	var availableContent = ds_list_create();
 				
-	//ds_list_add(availableContent, Content_Empty);
-	//ds_list_add(availableContent, Content_Empty);
-	//ds_list_add(availableContent, Content_Empty);
+	ds_list_add(availableContent, Content_Empty);
+	ds_list_add(availableContent, Content_Empty);
+	ds_list_add(availableContent, Content_Empty);
 	ds_list_add(availableContent, Content_Forest);
 	ds_list_add(availableContent, Content_Forest);
 				

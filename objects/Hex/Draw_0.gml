@@ -16,10 +16,10 @@ else
 		string(Coordinate[? X]) + ":" + string(Coordinate[? Y]),
 		c_gray,c_gray,c_gray,c_gray,1
 	);
-	draw_text_color(
-		x,
-		y + 20,
-		string(depth),
-		c_gray,c_gray,c_gray,c_gray,1
-	);
+	//draw_text_color(
+	//	x,
+	//	y + 20,
+	//	string(depth),
+	//	c_gray,c_gray,c_gray,c_gray,1
+	//);
 }

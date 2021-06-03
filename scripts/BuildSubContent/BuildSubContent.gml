@@ -19,9 +19,9 @@ function BuildSubContent(isCentre){
 		ds_map_add(subContent, ContentSubPosition_CentreClockwise, true);
 		ds_map_add(subContent, ContentSubPosition_CentreAntiClockwise, true);
 	
-		ds_map_add(subContent, ContentSubPosition_OuterClockwise, true);
-		ds_map_add(subContent, ContentSubPosition_OuterCentre, true);
-		ds_map_add(subContent, ContentSubPosition_OuterAntiClockwise,  true);
+		ds_map_add(subContent, ContentSubPosition_OuterClockwise, pointer_null);
+		ds_map_add(subContent, ContentSubPosition_OuterCentre, pointer_null);
+		ds_map_add(subContent, ContentSubPosition_OuterAntiClockwise,  pointer_null);
 	}
 	
 	return subContent;

@@ -6,6 +6,8 @@
     {"id":{"name":"TilePalletButton","path":"objects/TilePalletButton/TilePalletButton.yy",},"order":6,},
     {"id":{"name":"sprTree","path":"sprites/sprTree/sprTree.yy",},"order":7,},
     {"id":{"name":"DrawTree","path":"scripts/DrawTree/DrawTree.yy",},"order":9,},
+    {"id":{"name":"CalculateResources","path":"scripts/CalculateResources/CalculateResources.yy",},"order":1,},
+    {"id":{"name":"AddOuterAdjacentContent","path":"scripts/AddOuterAdjacentContent/AddOuterAdjacentContent.yy",},"order":0,},
     {"id":{"name":"GUI","path":"objects/GUI/GUI.yy",},"order":5,},
     {"id":{"name":"Grid","path":"objects/Grid/Grid.yy",},"order":1,},
     {"id":{"name":"GetHex","path":"scripts/GetHex/GetHex.yy",},"order":2,},
@@ -58,6 +60,7 @@
     {"folderPath":"folders/Animation Curves.yy","order":12,"resourceVersion":"1.0","name":"Animation Curves","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Notes.yy","order":13,"resourceVersion":"1.0","name":"Notes","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Extensions.yy","order":14,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Scripts/ResourceCalculations.yy","order":13,"resourceVersion":"1.0","name":"ResourceCalculations","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
