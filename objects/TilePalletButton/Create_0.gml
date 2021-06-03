@@ -6,6 +6,4 @@
 
 Position = -1;
 
-Content = ds_map_create();
-
-PopulateRandomContent(Content);
+Content = NewRandomContentSet();

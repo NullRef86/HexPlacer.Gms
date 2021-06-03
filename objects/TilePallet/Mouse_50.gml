@@ -9,7 +9,7 @@ var mouseY = device_mouse_y_to_gui(0);
 	
 var clickedButton = instance_nearest(mouseX, mouseY, TilePalletButton)
 
-var newBrush = instance_create_(0, 0, "TilesLayer", TileBrush);
+var newBrush = instance_create_depth(0, 0, 1, TileBrush);
 	
 newBrush.PalletPosition = clickedButton.Position;
 	

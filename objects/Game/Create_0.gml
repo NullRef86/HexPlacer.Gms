@@ -21,6 +21,21 @@
 #macro Content_Campfire "Campfire"
 #macro Content_Forest "Forest"
 
+#macro ContentSubPosition_OuterClockwise "OuterClockwise"
+#macro ContentSubPosition_OuterCentre "OuterCentre"
+#macro ContentSubPosition_OuterAntiClockwise "OuterAntiClockwise"
+
+#macro ContentSubPosition_CentreClockwise "CentreClockwise"
+#macro ContentSubPosition_CentreAntiClockwise "CentreAntiClockwise"
+
+#macro ContentSubPosition_Inner "Inner"
+
+#macro ContentSubPosition_NorthWest "NorthWest"
+#macro ContentSubPosition_North "North"
+#macro ContentSubPosition_NorthEast "NorthEast"
+#macro ContentSubPosition_SouthEast "SouthEast"
+#macro ContentSubPosition_SouthWest "SouthWest"
+
 randomize();
 
 global.HexContentTemplate = ds_map_create();

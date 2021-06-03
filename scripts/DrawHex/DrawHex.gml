@@ -8,74 +8,126 @@ function DrawHex(content, alpha){
 	}
 
 	draw_sprite_ext(grass_tile, 0, x, y, 1, 1, 0, c_white, alpha);	
+	//draw_sprite_ext(tree, 0, x - 23, y - 14, 1, 1, 0, c_white, alpha);	
+	//draw_sprite_ext(campfire, 0, x, y, 0.125, 0.125, 0, c_white, alpha);	
 	
 	if (ds_map_exists(content, ContentPosition_NorthWest))
 	{
-		switch (content[?ContentPosition_NorthWest])
-		{
-			case Content_Forest:
-				draw_sprite_ext(tree, 0, x - 23, y - 14, 1, 1, 0, c_white, alpha);	
-				break;			
-		}	
+		var subContent = content[?ContentPosition_NorthWest];
+		
+		if (subContent != Content_Empty)
+		{		
+			var subX = x - 23;
+			var subY = y - 14;
+		
+			DrawTree(subX, subY - 18, subContent[?ContentSubPosition_OuterClockwise], alpha);
+			DrawTree(subX - 6, subY - 6, subContent[?ContentSubPosition_OuterCentre], alpha);
+			DrawTree(subX - 13, subY + 5, subContent[?ContentSubPosition_OuterAntiClockwise], alpha);
+			DrawTree(subX - 5, subY + 7, subContent[?ContentSubPosition_CentreClockwise], alpha);
+			DrawTree(subX + 5, subY - 7, subContent[?ContentSubPosition_CentreAntiClockwise], alpha);
+			DrawTree(subX + 7, subY + 5, subContent[?ContentSubPosition_Inner], alpha);
+		}
 	}
 	if (ds_map_exists(content, ContentPosition_North))
 	{
-		switch (content[?ContentPosition_North])
-		{
-			case Content_Forest:
-				draw_sprite_ext(tree, 0, x + 1, y - 28, 1, 1, 0, c_white, alpha);	
-				break;			
-		}	
+		var subContent = content[?ContentPosition_North];
+		
+		if (subContent != Content_Empty)
+		{		
+			var subX = x + 1;
+			var subY = y - 28;
+		
+			DrawTree(subX + 15, subY - 9, subContent[?ContentSubPosition_OuterClockwise], alpha);
+			DrawTree(subX + 2, subY - 9, subContent[?ContentSubPosition_OuterCentre], alpha);
+			DrawTree(subX - 12, subY - 9, subContent[?ContentSubPosition_OuterAntiClockwise], alpha);
+			DrawTree(subX - 9, subY, subContent[?ContentSubPosition_CentreClockwise], alpha);
+			DrawTree(subX + 9, subY, subContent[?ContentSubPosition_CentreAntiClockwise], alpha);
+			DrawTree(subX, subY + 9, subContent[?ContentSubPosition_Inner], alpha);
+		}
 	}
 	if (ds_map_exists(content, ContentPosition_NorthEast))
 	{
-		switch (content[?ContentPosition_NorthEast])
-		{
-			case Content_Forest:
-				draw_sprite_ext(tree, 0, x  + 24, y - 14, 1, 1, 0, c_white, alpha);	
-				break;			
-		}	
+		var subContent = content[?ContentPosition_NorthEast];
+		
+		if (subContent != Content_Empty)
+		{		
+			var subX = x + 24;
+			var subY = y - 14;
+		
+			DrawTree(subX + 17, subY + 10, subContent[?ContentSubPosition_OuterClockwise], alpha);
+			DrawTree(subX + 8, subY - 4, subContent[?ContentSubPosition_OuterCentre], alpha);
+			DrawTree(subX + 2, subY - 17, subContent[?ContentSubPosition_OuterAntiClockwise], alpha);
+			DrawTree(subX - 5, subY - 7, subContent[?ContentSubPosition_CentreClockwise], alpha);
+			DrawTree(subX + 5, subY + 7, subContent[?ContentSubPosition_CentreAntiClockwise], alpha);
+			DrawTree(subX - 7, subY + 5, subContent[?ContentSubPosition_Inner], alpha);
+		}
 	}
 	
 	if (ds_map_exists(content, ContentPosition_Centre))
 	{
-		switch (content[?ContentPosition_Centre])
-		{
-			case Content_Forest:
-				draw_sprite_ext(tree, 0, x, y, 1, 1, 0, c_white, alpha);	
-				break;	
-			case Content_Campfire:
-				draw_sprite_ext(campfire, 0, x, y, 0.125, 0.125, 0, c_white, alpha);	
-				break;			
-		}	
+		var subContent = content[?ContentPosition_Centre];
+		
+		if (subContent != Content_Empty)
+		{		
+			DrawTree(x + 1, y - 9, subContent[?ContentSubPosition_North], alpha);
+			DrawTree(x - 7, y - 2, subContent[?ContentSubPosition_NorthWest], alpha);
+			DrawTree(x + 9, y - 2, subContent[?ContentSubPosition_NorthEast], alpha);
+			DrawTree(x - 5, y + 8, subContent[?ContentSubPosition_SouthWest], alpha);
+			DrawTree(x + 6, y + 9, subContent[?ContentSubPosition_SouthEast], alpha);
+		}
 	}
 	
 	if (ds_map_exists(content, ContentPosition_SouthWest))
 	{
-		switch (content[?ContentPosition_SouthWest])
-		{
-			case Content_Forest:
-				draw_sprite_ext(tree, 0, x - 23, y + 14, 1, 1, 0, c_white, alpha);	
-				break;			
-		}	
+		var subContent = content[?ContentPosition_SouthWest];
+		
+		if (subContent != Content_Empty)
+		{		
+			var subX = x - 23;
+			var subY = y + 14;
+		
+			DrawTree(subX + 7, subY - 5, subContent[?ContentSubPosition_Inner], alpha);
+			DrawTree(subX + 5, subY + 7, subContent[?ContentSubPosition_CentreClockwise], alpha);
+			DrawTree(subX - 5, subY - 7, subContent[?ContentSubPosition_CentreAntiClockwise], alpha);
+			DrawTree(subX - 17, subY - 10, subContent[?ContentSubPosition_OuterClockwise], alpha);
+			DrawTree(subX - 8, subY + 4, subContent[?ContentSubPosition_OuterCentre], alpha);
+			DrawTree(subX - 2, subY + 17, subContent[?ContentSubPosition_OuterAntiClockwise], alpha);
+		}
 	}
 	if (ds_map_exists(content, ContentPosition_South))
 	{
-		switch (content[?ContentPosition_South])
-		{
-			case Content_Forest:
-				draw_sprite_ext(tree, 0, x + 1, y + 28, 1, 1, 0, c_white, alpha);	
-				break;			
-		}	
+		var subContent = content[?ContentPosition_South];
+		
+		if (subContent != Content_Empty)
+		{		
+			var subX = x + 1;
+			var subY = y + 28;
+		
+			DrawTree(subX, subY - 9, subContent[?ContentSubPosition_Inner], alpha);
+			DrawTree(subX + 9, subY, subContent[?ContentSubPosition_CentreClockwise], alpha);
+			DrawTree(subX - 9, subY, subContent[?ContentSubPosition_CentreAntiClockwise], alpha);
+			DrawTree(subX - 15, subY + 9, subContent[?ContentSubPosition_OuterClockwise], alpha);
+			DrawTree(subX - 2, subY + 9, subContent[?ContentSubPosition_OuterCentre], alpha);
+			DrawTree(subX + 12, subY + 9, subContent[?ContentSubPosition_OuterAntiClockwise], alpha);
+		}
+		
 	}
 	if (ds_map_exists(content, ContentPosition_SouthEast))
 	{
-		switch (content[?ContentPosition_SouthEast])
-		{
-			case Content_Forest:
-				draw_sprite_ext(tree, 0, x  + 24, y + 14, 1, 1, 0, c_white, alpha);	
-				break;			
-		}	
+		var subContent = content[?ContentPosition_SouthEast];
+		
+		if (subContent != Content_Empty)
+		{		
+			var subX = x + 24;
+			var subY = y + 14;
+		
+			DrawTree(subX - 7, subY - 5, subContent[?ContentSubPosition_Inner], alpha);
+			DrawTree(subX + 5, subY - 7, subContent[?ContentSubPosition_CentreClockwise], alpha);
+			DrawTree(subX - 5, subY + 7, subContent[?ContentSubPosition_CentreAntiClockwise], alpha);
+			DrawTree(subX, subY + 18, subContent[?ContentSubPosition_OuterClockwise], alpha);
+			DrawTree(subX + 6, subY + 6, subContent[?ContentSubPosition_OuterCentre], alpha);
+			DrawTree(subX + 13, subY - 5, subContent[?ContentSubPosition_OuterAntiClockwise], alpha);
+		}
 	}
 	
 	

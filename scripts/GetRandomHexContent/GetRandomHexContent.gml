@@ -1,12 +1,12 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function GetRandomHexContent(){
+function GetRandomHexContent(isCentre){
 
 	var availableContent = ds_list_create();
 				
-	ds_list_add(availableContent, Content_Empty);
-	ds_list_add(availableContent, Content_Empty);
-	ds_list_add(availableContent, Content_Empty);
+	//ds_list_add(availableContent, Content_Empty);
+	//ds_list_add(availableContent, Content_Empty);
+	//ds_list_add(availableContent, Content_Empty);
 	ds_list_add(availableContent, Content_Forest);
 	ds_list_add(availableContent, Content_Forest);
 				
@@ -23,5 +23,12 @@ function GetRandomHexContent(){
 
 	ds_list_shuffle(availableContent);
 
-	return availableContent[|0];
+	switch (availableContent[|0])
+	{
+		case Content_Forest:
+			return BuildSubContent(isCentre);
+			break;
+		default:
+			return availableContent[|0];
+	}
 }

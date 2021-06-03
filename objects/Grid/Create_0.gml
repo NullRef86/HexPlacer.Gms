@@ -20,6 +20,12 @@ for (var xIndex = 0; xIndex < width; xIndex++)
 		
         var isOddColumn = hex.Coordinate[?X] % 2 != 0;
 
+		hex.depth = ((height + (yIndex * -1)) * 2);
+		if (isOddColumn)
+		{
+			hex.depth--;	
+		}		
+		
         var leftPosition =
             hexWidth * hex.Coordinate[?X];
 
@@ -38,6 +44,8 @@ for (var xIndex = 0; xIndex < width; xIndex++)
 
 		hex.x = leftPosition + (hexWidth / 2);
 		hex.y = topPosition + (hexHeight / 2);		
+
+		//hex.Content = NewRandomContentSet();
 
 		ds_list_add(global.Hexes, hex);
 	}
@@ -125,9 +133,13 @@ var startingHex =
 
 ds_map_copy(startingHex.Content, global.HexContentTemplate);
 
-startingHex.Content[?ContentPosition_Centre] = Content_Campfire;
-startingHex.Content[?ContentPosition_NorthWest] = Content_Forest;
-startingHex.Content[?ContentPosition_NorthEast] = Content_Forest;
+startingHex.Content[?ContentPosition_Centre] = BuildSubContent(true);
+startingHex.Content[?ContentPosition_NorthWest] = BuildSubContent(false);
+startingHex.Content[?ContentPosition_North] = BuildSubContent(false);
+startingHex.Content[?ContentPosition_NorthEast] = BuildSubContent(false);
+startingHex.Content[?ContentPosition_SouthWest] = BuildSubContent(false);
+startingHex.Content[?ContentPosition_South] = BuildSubContent(false);
+startingHex.Content[?ContentPosition_SouthEast] = BuildSubContent(false);
 
 
 

@@ -1,6 +1,6 @@
 /// @description Place tile
 
-if (global.IsHoveringPallet)
+if (global.IsHoveringPallet || !IsValid)
 {
 	return;	
 }
@@ -18,6 +18,6 @@ with (TilePallet)
 
 var brushButton = tilePallet.Brushes[|PalletPosition];
 
-PopulateRandomContent(brushButton.Content);
+brushButton.Content = NewRandomContentSet();
 	
 ClearTileBrush();
