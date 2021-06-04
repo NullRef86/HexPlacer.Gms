@@ -11,6 +11,14 @@ function NewRandomContentSet(){
 	content[?ContentPosition_SouthWest] = GetRandomTileContent(false);
 	content[?ContentPosition_South] = GetRandomTileContent(false);
 	content[?ContentPosition_SouthEast] = GetRandomTileContent(false);
+	
+	//content[?ContentPosition_Centre] = GetTileContent(Content_Empty, true);
+	//content[?ContentPosition_NorthWest] = GetTileContent(Content_Empty, false);
+	//content[?ContentPosition_North] = GetTileContent(Content_Empty, false);
+	//content[?ContentPosition_NorthEast] = GetTileContent(Content_Empty, false);
+	//content[?ContentPosition_SouthWest] = GetTileContent(Content_Empty, false);
+	//content[?ContentPosition_South] = GetTileContent(Content_Forest, false);
+	//content[?ContentPosition_SouthEast] = GetTileContent(Content_Empty, false);
 
 	return content;
 	

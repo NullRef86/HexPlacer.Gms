@@ -13,7 +13,7 @@ CalculateResources(clickedHex);
 for (var key = ds_map_find_first(clickedHex.Neighbors); !is_undefined(key); key = ds_map_find_next(clickedHex.Neighbors, key)) 
 {
 	var neighborCoordinate = clickedHex.Neighbors[? key];
-	var neighborHex = GetHex(neighborCoordinate[?X], neighborCoordinate[?Y]);
+	var neighborHex = GetHex(neighborCoordinate.X, neighborCoordinate.Y);
 	CalculateResources(neighborHex);
 }
 
@@ -29,3 +29,5 @@ var brushButton = tilePallet.Brushes[|PalletPosition];
 brushButton.Content = NewRandomContentSet();
 	
 ClearTileBrush();
+
+global.Game.ProcessTurn();

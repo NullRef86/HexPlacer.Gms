@@ -13,7 +13,7 @@ else
 	draw_text_color(
 		x,
 		y,
-		string(Coordinate[? X]) + ":" + string(Coordinate[? Y]),
+		string(Coordinate.X) + ":" + string(Coordinate.Y),
 		c_gray,c_gray,c_gray,c_gray,1
 	);
 	//draw_text_color(

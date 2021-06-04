@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "ResourceCalculations",
-    "path": "folders/Scripts/ResourceCalculations.yy",
+    "name": "CoreLogic",
+    "path": "folders/Scripts/CoreLogic.yy",
   },
   "resourceVersion": "1.0",
-  "name": "AddOuterAdjacentContent",
+  "name": "PlayerLogic",
   "tags": [],
   "resourceType": "GMScript",
 }

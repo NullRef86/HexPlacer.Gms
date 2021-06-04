@@ -27,7 +27,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Game",
+  "name": "obj_Game",
   "tags": [],
   "resourceType": "GMObject",
 }

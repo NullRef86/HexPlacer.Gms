@@ -1,7 +1,3 @@
-
-#macro X "X"
-#macro Y "Y"
-
 #macro HexPosition_NorthWest "NorthWest"
 #macro HexPosition_North "North"
 #macro HexPosition_NorthEast "NorthEast"
@@ -20,6 +16,7 @@
 #macro Content_Empty "Empty"
 #macro Content_Campfire "Campfire"
 #macro Content_Forest "Forest"
+#macro Content_House "House"
 
 #macro ContentSubPosition_OuterClockwise "OuterClockwise"
 #macro ContentSubPosition_OuterCentre "OuterCentre"
@@ -37,6 +34,8 @@
 #macro ContentSubPosition_SouthWest "SouthWest"
 
 randomize();
+
+global.Game.Setup();
 
 global.HexContentTemplate = ds_map_create();
 

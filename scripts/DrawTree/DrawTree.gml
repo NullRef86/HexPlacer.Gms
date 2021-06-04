@@ -5,14 +5,13 @@ function DrawTree(x, y, state, alpha){
 		return;	
 	}
 
-	if (state)
+	var subImg = 0;
+
+	if (state == Resource_Taken)
 	{
-		draw_sprite_ext(spr_Tree_Tall, 0, x, y, 1, 1, 0, c_white, alpha);	
+		subImg = 1;
 	}
-	else
-	{
-		draw_circle_color(x, y, 3, c_yellow, c_maroon, false);	
-		draw_circle_color(x, y, 3, c_black, c_black, true);		
-	}
+	
+	draw_sprite_ext(spr_Tree_Tall, subImg, x, y, 1, 1, 0, c_white, alpha);	
 
 }

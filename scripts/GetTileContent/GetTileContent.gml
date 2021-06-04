@@ -1,5 +1,5 @@
-#macro TileContent_Type "Type"
-#macro TileContent_SubContent "SubContent"
+#macro Resource_Available "Available"
+#macro Resource_Taken "Taken"
 
 function GetTileContent(type, isCentre){
 
@@ -8,13 +8,52 @@ function GetTileContent(type, isCentre){
 		isCentre = false;	
 	}
 
-	var tileContent = ds_map_create();
+	var tileContent = {
+		Type: type,
+		SubContent: pointer_null,
+		AvailableResources: function()
+        {
+            var availableResources = 0;
 
-	ds_map_add(tileContent, TileContent_Type, Content_Empty);
-	ds_map_add(tileContent, TileContent_SubContent, pointer_null);
+			for (var key = ds_map_find_first(SubContent); !is_undefined(key); key = ds_map_find_next(SubContent, key)) 
+			{
+				var subContent = SubContent[?key];
+                //if (subContent != pointer_null && subContent == true)
+				if (subContent == Resource_Available)
+                {
+                    availableResources++;
+                }
+            }
 
-	tileContent[?TileContent_Type] = type;
-	
+            return availableResources;
+        },
+		TakeResource: function()
+		{
+            // Get all the sub-content with a true value...
+			var availableSubContentKeys = ds_list_create();
+			
+			for (var key = ds_map_find_first(SubContent); !is_undefined(key); key = ds_map_find_next(SubContent, key)) 
+			{
+				var subContent = SubContent[?key];
+				
+				//if (subContent == pointer_null || subContent == false)
+				if (subContent != Resource_Available)
+				{
+					continue;
+				}
+				
+				ds_list_add(availableSubContentKeys, key);
+			}
+			
+            // Shuffle the list to make it more organic looking...
+            ds_list_shuffle(availableSubContentKeys);
+			
+            // Take the resource by setting the value to false.
+            SubContent[?availableSubContentKeys[|0]] = Resource_Taken;
+		}
+
+	};
+
 	switch (type)
 	{
 		case Content_Forest:
@@ -23,25 +62,25 @@ function GetTileContent(type, isCentre){
 	
 			if (isCentre)
 			{
-				ds_map_add(subContent, ContentSubPosition_NorthWest, true);
-				ds_map_add(subContent, ContentSubPosition_North, true);
-				ds_map_add(subContent, ContentSubPosition_NorthEast, true);
-				ds_map_add(subContent, ContentSubPosition_SouthWest, true);
-				ds_map_add(subContent, ContentSubPosition_SouthEast, true);
+				ds_map_add(subContent, ContentSubPosition_NorthWest, Resource_Available);
+				ds_map_add(subContent, ContentSubPosition_North, Resource_Available);
+				ds_map_add(subContent, ContentSubPosition_NorthEast, Resource_Available);
+				ds_map_add(subContent, ContentSubPosition_SouthWest, Resource_Available);
+				ds_map_add(subContent, ContentSubPosition_SouthEast, Resource_Available);
 			}
 			else
 			{
-				ds_map_add(subContent, ContentSubPosition_Inner, true);
+				ds_map_add(subContent, ContentSubPosition_Inner, Resource_Available);
 	
-				ds_map_add(subContent, ContentSubPosition_CentreClockwise, true);
-				ds_map_add(subContent, ContentSubPosition_CentreAntiClockwise, true);
+				ds_map_add(subContent, ContentSubPosition_CentreClockwise, Resource_Available);
+				ds_map_add(subContent, ContentSubPosition_CentreAntiClockwise, Resource_Available);
 	
 				ds_map_add(subContent, ContentSubPosition_OuterClockwise, pointer_null);
 				ds_map_add(subContent, ContentSubPosition_OuterCentre, pointer_null);
 				ds_map_add(subContent, ContentSubPosition_OuterAntiClockwise,  pointer_null);
 			}
 	
-			tileContent[?TileContent_SubContent] = subContent;
+			tileContent.SubContent = subContent;
 			break;
 	}
 
